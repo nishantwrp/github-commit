@@ -8,7 +8,7 @@ function getProjectString(project: Project) {
 }
 
 export function checkIfRepositoryExists(project: Project) {
-    return axios.get(baseUrl + 'repos/' + getProjectString(project));
+    return axios.get(baseUrl + 'repos/' + project.username + "/" + project.repo);
 }
 
 export function searchByCommitHash(project: Project, hash: string) {
