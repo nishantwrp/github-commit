@@ -41,8 +41,11 @@ export default new Vuex.Store({
       return state.project;
     },
     isProjectSaved: state => {
-      if (state.project.repo === null || state.project.ownerAvatar === null || state.project.username === null || state.project.description === null)
-        return false;
+      for (const value of Object.values(state.project)) {
+        if (!value) {
+          return false;
+        }
+      }
       return true;
     }
   },
